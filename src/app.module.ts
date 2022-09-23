@@ -5,6 +5,7 @@ import { UsersModule } from './users/users.module';
 import { User } from './users/users.model';
 import { BooksModule } from './books/books.module';
 import { Book } from './books/books.model';
+import { UserBooks } from './books/user-books.model';
 
 @Module({
   controllers: [],
@@ -20,7 +21,7 @@ import { Book } from './books/books.model';
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRESS_PASSWORD,
       database: process.env.POSTGRES_DB,
-      models: [User, Book],
+      models: [User, Book, UserBooks],
       autoLoadModels: true
     }),
     UsersModule,
