@@ -1,5 +1,7 @@
-import { Column, DataType, Model, Table } from 'sequelize-typescript';
+import { BelongsToMany, Column, DataType, Model, Table } from 'sequelize-typescript';
 import { ApiProperty } from '@nestjs/swagger';
+import { User } from '../users/users.model';
+import { UserBooks } from './user-books.model';
 
 interface BookCreationAttrs {
   title: string;
@@ -20,4 +22,7 @@ export class Book extends Model<Book, BookCreationAttrs> {
   @ApiProperty({ example: 'Robert Martin', description: 'Автор книги' })
   @Column({ type: DataType.STRING, allowNull: false })
   author: string;
+
+  @BelongsToMany(() => User, () => UserBooks)
+  users: User[];
 }
