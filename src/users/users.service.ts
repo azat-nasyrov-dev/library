@@ -34,7 +34,5 @@ export class UsersService {
     const user = await this.userRepository.findOne({ where: { id } });
     await user.destroy();
     return user;
-    // const user = await this.userRepository.destroy({ where: { id } });
-    // return user;
   }
 }
