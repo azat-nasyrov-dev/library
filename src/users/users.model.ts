@@ -1,4 +1,5 @@
 import { Column, DataType, Model, Table } from 'sequelize-typescript';
+import { ApiProperty } from "@nestjs/swagger";
 
 interface UserCreationAttrs {
   firstName: string;
@@ -7,20 +8,25 @@ interface UserCreationAttrs {
   isFree: boolean;
 }
 
-@Table({tableName: 'users'})
+@Table({ tableName: 'users' })
 export class User extends Model<User, UserCreationAttrs> {
-  @Column({type: DataType.INTEGER, unique: true, autoIncrement: true, primaryKey: true})
+  @ApiProperty({ example: '1', description: 'Уникальный идентификатор' })
+  @Column({ type: DataType.INTEGER, unique: true, autoIncrement: true, primaryKey: true })
   id: number;
 
-  @Column({type: DataType.STRING, allowNull: false})
+  @ApiProperty({ example: 'John', description: 'Имя' })
+  @Column({ type: DataType.STRING, allowNull: false })
   firstName: string;
 
-  @Column({type: DataType.STRING, allowNull: false})
+  @ApiProperty({ example: 'Doe', description: 'Фамилия' })
+  @Column({ type: DataType.STRING, allowNull: false })
   lastName: string;
 
-  @Column({type: DataType.INTEGER, allowNull: false})
+  @ApiProperty({ example: '30', description: 'Возраст' })
+  @Column({ type: DataType.INTEGER, allowNull: false })
   age: number;
 
-  @Column({type: DataType.BOOLEAN, allowNull: false})
+  @ApiProperty({ example: 'true', description: 'Холост/Женат' })
+  @Column({ type: DataType.BOOLEAN, allowNull: false })
   isFree: boolean;
 }
