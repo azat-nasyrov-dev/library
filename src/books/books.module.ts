@@ -11,6 +11,7 @@ import { User } from '../users/users.model';
   controllers: [BooksController],
   imports: [
     SequelizeModule.forFeature([Book, UserBooks, User])
-  ]
+  ],
+  exports: [BooksService]
 })
 export class BooksModule {}

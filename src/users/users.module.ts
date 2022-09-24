@@ -5,12 +5,14 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { User } from './users.model';
 import { UserBooks } from '../books/user-books.model';
 import { Book } from 'src/books/books.model';
+import { BooksModule } from '../books/books.module';
 
 @Module({
   controllers: [UsersController],
   providers: [UsersService],
   imports: [
-    SequelizeModule.forFeature([User, UserBooks, Book])
+    SequelizeModule.forFeature([User, UserBooks, Book]),
+    BooksModule
   ]
 })
 export class UsersModule {}
