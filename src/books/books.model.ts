@@ -8,7 +8,7 @@ interface BookCreationAttrs {
   author: string;
 }
 
-@Table({ tableName: 'books' })
+@Table({ tableName: 'books', updatedAt: false })
 export class Book extends Model<Book, BookCreationAttrs> {
 
   @ApiProperty({ example: '1', description: 'Уникальный идентификатор' })
