@@ -7,6 +7,6 @@
 Доступна документация проекта Swagger: http://localhost:5000/api/docs/#/
 
 ERD базы данных:
-![alt text](./src/assets/images/erd-data-base.png)
+![alt text](./src/assets/images/erd-db.png)
 
 
